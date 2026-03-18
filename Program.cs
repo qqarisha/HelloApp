@@ -1,23 +1,4 @@
-var builder = WebApplication.CreateBuilder(args);
-var app = builder.Build();
+int n = Convert.ToInt32(Console.ReadLine());
 
-app.Map("/api/healthcheck", async (context) =>
-{
-    if (context.Request.Method == "GET")
-    {
-        context.Response.StatusCode = 200;
-        await context.Response.WriteAsync("OK");
-    }
-});
+for (int i = 1; i <= n; i++) Console.WriteLine(i);
 
-app.Map("/api/config/myfield", async (HttpContext context, IConfiguration config) =>
-{
-    if (context.Request.Method == "GET")
-    {
-        var myField = config["AppSettings:MyField"];
-        context.Response.ContentType = "application/json";
-        await context.Response.WriteAsync($"value: {myField}");
-    }
-});
-
-app.Run();
