@@ -5,11 +5,13 @@ namespace MvcApp.Controllers
 {
     public class ApiController : Controller
     {
-        private TimeService timeService;
+        private ITimeService timeService;
+        private IPingService pingService;
 
-        public ApiController(TimeService timeservice)
+        public ApiController(ITimeService timeservice, IPingService pingservice)
         {
             timeService = timeservice;
+            pingService = pingservice;
         }
 
         [ActionName("healthcheck")]
@@ -31,7 +33,19 @@ namespace MvcApp.Controllers
         [HttpGet("api/time")]
         public async Task Time()
         {
-            await Response.WriteAsync(timeService.GetTime());
+            await Response.WriteAsync(timeService.GetTime().ToString());
+        }
+
+        [HttpPost("api/pings")]
+        public async Task Ping()
+        {
+            pingService.Ping();
+        }
+
+        [HttpGet("api/pings")]
+        public async Task GetPing()
+        {
+            await Response.WriteAsync(pingService.GetPings().ToString());
         }
 
     }
