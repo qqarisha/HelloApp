@@ -1,10 +1,6 @@
 ﻿namespace HelloApp.Services
 {
-    public interface ITimeService
-    {
-        public DateTime GetTime();
-    }
-    public class TimeService: ITimeService
+    public class TimeService : ITimeService
     {
         public DateTime GetTime()
         {

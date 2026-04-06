@@ -3,24 +3,11 @@ using HelloApp.Services;
 
 namespace MvcApp.Controllers
 {
-    public class ApiController : Controller
+    public class ApiController(ITimeService timeService, IPingService pingService) : Controller
     {
-        private ITimeService timeService;
-        private IPingService pingService;
-
-        public ApiController(ITimeService timeservice, IPingService pingservice)
-        {
-            timeService = timeservice;
-            pingService = pingservice;
-        }
-
         [ActionName("healthcheck")]
         [HttpGet]
-        public async Task Index()
-        {
-            Response.StatusCode = 200;
-            await Response.WriteAsync("OK");
-        }
+        public async Task Index() => Ok();
 
         [HttpGet("api/config/myfield")]
         public async Task Conf()
@@ -31,22 +18,12 @@ namespace MvcApp.Controllers
         }
 
         [HttpGet("api/time")]
-        public async Task Time()
-        {
-            await Response.WriteAsync(timeService.GetTime().ToString());
-        }
+        public async Task Time() => Ok(timeService.GetTime().ToString());
 
         [HttpPost("api/pings")]
-        public async Task Ping()
-        {
-            pingService.Ping();
-        }
+        public async Task Ping() => pingService.Ping();
 
         [HttpGet("api/pings")]
-        public async Task GetPing()
-        {
-            await Response.WriteAsync(pingService.GetPings().ToString());
-        }
-
+        public async Task<IActionResult> GetPing() => Ok(pingService.GetPings().ToString());
     }
 }
