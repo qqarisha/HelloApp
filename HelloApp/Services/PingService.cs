@@ -2,12 +2,7 @@
 {
     public class PingService: IPingService
     {
-        public List<DateTime> Pings { get; set; }
-
-        public PingService()
-        {
-            Pings = new List<DateTime>();
-        }
+        public List<DateTime> Pings { get; set; } = new List<DateTime>();
 
         public void Ping()
         {
