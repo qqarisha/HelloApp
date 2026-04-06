@@ -8,6 +8,7 @@
         {
             Pings.Add(DateTime.UtcNow);
         }
+
         public List<DateTime> GetPings()
         {
             return Pings;
