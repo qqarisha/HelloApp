@@ -10,11 +10,11 @@ namespace MvcApp.Controllers
         public async Task Index() => Ok();
 
         [HttpGet("api/config/myfield")]
-        public async Task Conf()
+        public async Task<IActionResult> Conf()
         {
             var config = HttpContext.RequestServices.GetService<IConfiguration>();
             var myField = config["AppSettings:MyField"];
-            await Response.WriteAsync($"value: {myField}");
+            return Ok($"value: {myField}");
         }
 
         [HttpGet("api/time")]
