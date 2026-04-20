@@ -1,9 +1,12 @@
-﻿namespace HelloApp.Classes
-{
-    public class Author
-    {
-        public int Id { get; set; }
+﻿using System.Numerics;
 
-        public string Name { get; set; }
-    }
+namespace HelloApp.Classes;
+
+public class Author
+{
+    public int Id { get; set; }
+
+    public string Name { get; set; }
+
+    public ICollection<Book> Books { get; set; }
 }
