@@ -1,6 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using HelloApp.Classes;
+using Microsoft.EntityFrameworkCore;
 
-namespace HelloApp.Classes
+namespace HelloApp.Services
 {
     public class ApplicationContext: DbContext
     {

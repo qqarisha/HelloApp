@@ -1,6 +1,6 @@
 ﻿using HelloApp.Classes;
 
-namespace HelloApp.Repositories
+namespace HelloApp.Interfaces
 {
     public interface IAuthorRepository
     {

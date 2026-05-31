@@ -2,3 +2,4 @@ HelloApp/bin/
 HelloApp/obj/
 HelloApp/appsettings.Development.json
 .vs/
+/HelloApp/appsettings.json

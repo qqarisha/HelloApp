@@ -1,4 +1,6 @@
 ﻿using HelloApp.Classes;
+using HelloApp.Interfaces;
+using HelloApp.Services;
 
 namespace HelloApp.Repositories
 {

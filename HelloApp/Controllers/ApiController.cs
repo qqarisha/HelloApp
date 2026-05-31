@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using HelloApp.Services;
+using HelloApp.Interfaces;
 
 namespace MvcApp.Controllers
 {

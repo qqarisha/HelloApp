@@ -1,4 +1,4 @@
-using HelloApp.Classes;
+using HelloApp.Interfaces;
 using HelloApp.Repositories;
 using HelloApp.Services;
 using Microsoft.EntityFrameworkCore;

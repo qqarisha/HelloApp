@@ -1,12 +1,12 @@
 ﻿using HelloApp.Classes;
 
-namespace HelloApp.Repositories
+namespace HelloApp.Interfaces
 {
     public interface IUserRepository
     {
         IEnumerable<User> GetAll();
 
-        User GetByID(int id);
+        User? GetById(int id);
 
         void Create(User entity);
 
