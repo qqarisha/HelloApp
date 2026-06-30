@@ -1,6 +1,4 @@
-﻿using System.Numerics;
-
-namespace HelloApp.Classes
+﻿namespace HelloApp.Classes
 {
     public class Author
     {
