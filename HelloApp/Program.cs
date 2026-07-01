@@ -16,7 +16,14 @@ builder.Services.AddScoped<IBookRepository, BookRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IAuthorRepository, AuthorRepository>();
 
+builder.Services.AddScoped<ApplicationContextInitializer>();
+
 var app = builder.Build();
+
+using var scope = app.Services.CreateScope();
+var initializer = scope.ServiceProvider.GetRequiredService<ApplicationContextInitializer>();
+
+initializer.InitializeDB().Wait();
 
 app.MapControllerRoute(
     name: "default",
