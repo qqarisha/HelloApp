@@ -1,4 +1,4 @@
-﻿namespace HelloApp.Services
+﻿namespace HelloApp.Interfaces
 {
     public interface IPingService
     {

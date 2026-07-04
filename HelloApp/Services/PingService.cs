@@ -1,4 +1,6 @@
-﻿namespace HelloApp.Services
+﻿using HelloApp.Interfaces;
+
+namespace HelloApp.Services
 {
     public class PingService: IPingService
     {
