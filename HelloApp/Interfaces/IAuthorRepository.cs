@@ -13,5 +13,8 @@ namespace HelloApp.Interfaces
         void Update(Author entity);
 
         void Delete(int id);
+
+        IEnumerable<Book>? GetBooksByAuthorId(int authorId);
+
     }
 }

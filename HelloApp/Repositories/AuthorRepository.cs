@@ -1,6 +1,7 @@
 ﻿using HelloApp.Classes;
 using HelloApp.Interfaces;
 using HelloApp.Services;
+using Microsoft.EntityFrameworkCore;
 
 namespace HelloApp.Repositories
 {
@@ -44,5 +45,13 @@ namespace HelloApp.Repositories
             }
             _context.SaveChanges();
         }
+        public IEnumerable<Book>? GetBooksByAuthorId(int id)
+        {
+            return _context.Authors
+                .Include(a => a.Books)
+                .FirstOrDefault(a => a.Id == id)?
+                .Books;
+        }
+
     }
 }
